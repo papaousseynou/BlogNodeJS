@@ -1,0 +1,40 @@
+<!-- Page d'accueil   -->
+<div class="author">
+    <h1 class="author__heading">Salut, c'est Ousseynou.</h1>
+    <p class="author__body">Développeur Web.</p>
+</div>
+
+<img src="/img/img_ac.webp" alt="l'image d'accueil" class="img_ac" width="981" height="528">
+
+<section class="articles">
+    <h2 class="articles__heading">Derniers Posts</h2>
+
+
+
+ 
+    <ul class="articles_ul">
+        <% data.forEach(post=> { %>
+            <li>
+                <a href="/post/<%= post._id %>">
+                    <span>
+                        <%= post.title %>
+                    </span>
+                    <!-- <span>
+                        <%= post.summary %>
+                    </span> -->
+
+                    <span class="article-list__date">
+                        <%= post.createdAt.toDateString() %>
+                    </span>
+                </a>
+            </li>
+            <% }) %>
+    </ul>
+
+<!-- condition pour afficher le voir plus  -->
+    <% if (nextPage !==null) { %>
+
+        <a href="/?page=<%= nextPage %>" class="pagination">&lt; Voir plus</a>
+
+        <% } %>
+</section>
